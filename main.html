@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Temperature Converter App</title>
+	<title>Temperature Conversion App</title>
 	<link rel="stylesheet" type="text/css" href="app.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
 				<div class="form-control">
 					<label>To</label>
 					<select id="to" disabled="true" required>
-						<option value="" hidden="" selected="">Choose From</option>
+						<option value="" hidden="" selected="">Choose..</option>
 						<option id="celcius" value="celcius">Celcius</option>
 						<option id="fahrenheit" value="fahrenheit">Fahrenheit</option>
 						<option id="reamur" value="reamur">Reamur</option>
@@ -48,52 +48,18 @@
 			</div>
 		</form>
 	</div>
+	<script src="app.js"></script>
 	<script type="text/javascript">
-		let mainForm = document.getElementById('form');
-
-		let fromSelector = document.getElementById('from');
-		let fromValue = document.getElementById('from-value');
-
-		let toSelector = document.getElementById('to');
-
-		let result = document.getElementById('result');
-
-		//options placed at `to` section
-		let celciusOpt = document.getElementById('celcius');
-		let fahrenheitOpt = document.getElementById('fahrenheit');
-		let reamurOpt = document.getElementById('reamur');
-		let kelvinOpt = document.getElementById('kelvin');
-
-		function hideOption(optionId){
-    		document.querySelector(`#${optionId}`).setAttribute('hidden', true);
-
-    		if (fromSelector.value.toLowerCase() === 'fahrenheit') {
-    			kelvinOpt.setAttribute('hidden', true);
-    		}
-
-    		if (fromSelector.value.toLowerCase() === 'kelvin') {
-    			fahrenheitOpt.setAttribute('hidden', true);
-    		}
-    	}
-
-    	function refreshOption(){
-    		toSelector.removeAttribute('disabled');
-			toSelector.selectedIndex = 0;
-    		celciusOpt.removeAttribute('hidden');
-    		fahrenheitOpt.removeAttribute('hidden');
-    		reamurOpt.removeAttribute('hidden');
-    		kelvinOpt.removeAttribute('hidden');
-    	}
-
-    	function formulas(){
-    		
-    	}
-
 		document.addEventListener("DOMContentLoaded", function(event) {
 			fromSelector.onchange = function(e) {
 				refreshOption();
 				hideOption(fromSelector.value.toLowerCase());
 				console.log('gue jalaaan:' + fromSelector.value.toLowerCase());
+			}
+
+			mainForm.onsubmit = function(e) {
+				e.preventDefault();
+				convert();
 			}
 		});	
 	</script>
