@@ -1,8 +1,8 @@
-# Task Six
-Adding uuid library for generate ID in data.
+# Electron Mid-test Project
+Temperature Conversion App.
 
 
-![Main Window](https://i.imgur.com/CmqPsxh.jpg)
+![Main Window](https://i.imgur.com/KayJcoh.jpg)
 ### Installation
 
 This project requires [Node.js](https://nodejs.org/) v10+ to run.
