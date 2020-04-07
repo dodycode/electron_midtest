@@ -1,0 +1,51 @@
+body{
+	margin:0;
+	padding:0;
+	font-family: 'Lato', sans-serif;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.window-title{
+	font-size: 20px;
+	text-align: center;
+}
+
+.container{
+	padding: 0 20px;
+	margin: 0px auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.from-container,
+.to-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.from-container{
+	margin-bottom: 10px;
+}
+
+.to-container{
+	margin-bottom: 20px;
+}
+
+.submit-container{
+	margin:auto;
+}
+
+.form-control{
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	padding: 0px 10px;
+}
+
+.form-control select, input{
+	width: 100%;
+}

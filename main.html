@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temperature Converter App</title>
+	<link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body>
+	<div id="app">
+		<h1 class="window-title">Temperature App</h1>
+
+		<form id="form" class="container">
+			<div class="from-container">
+				<div class="form-control">
+					<label>From</label>
+					<select id="from" required>
+						<option value="" hidden="" selected="">Choose..</option>
+						<option value="celcius">Celcius</option>
+						<option value="fahrenheit">Fahrenheit</option>
+						<option value="reamur">Reamur</option>
+						<option value="kelvin">Kelvin</option>
+					</select>
+				</div>
+				<div class="form-control">
+					<label>Value</label>
+					<input id="from-value" type="text" required />
+				</div>
+			</div>
+
+			<div class="to-container">
+				<div class="form-control">
+					<label>To</label>
+					<select id="to" disabled="true" required>
+						<option value="" hidden="" selected="">Choose From</option>
+						<option id="celcius" value="celcius">Celcius</option>
+						<option id="fahrenheit" value="fahrenheit">Fahrenheit</option>
+						<option id="reamur" value="reamur">Reamur</option>
+						<option id="kelvin" value="kelvin">Kelvin</option>
+					</select>
+				</div>
+				<div class="form-control">
+					<label>Result</label>
+					<input id="result" type="text" disabled />
+				</div>
+			</div>
+
+			<div class="submit-container">
+				<input type="submit" value="CONVERT">
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+		let mainForm = document.getElementById('form');
+
+		let fromSelector = document.getElementById('from');
+		let fromValue = document.getElementById('from-value');
+
+		let toSelector = document.getElementById('to');
+
+		let result = document.getElementById('result');
+
+		//options placed at `to` section
+		let celciusOpt = document.getElementById('celcius');
+		let fahrenheitOpt = document.getElementById('fahrenheit');
+		let reamurOpt = document.getElementById('reamur');
+		let kelvinOpt = document.getElementById('kelvin');
+
+		function hideOption(optionId){
+    		document.querySelector(`#${optionId}`).setAttribute('hidden', true);
+    	}
+
+    	function refreshOption(){
+    		toSelector.removeAttribute('disabled');
+			toSelector.selectedIndex = 0;
+    		celciusOpt.removeAttribute('hidden');
+    		fahrenheitOpt.removeAttribute('hidden');
+    		reamurOpt.removeAttribute('hidden');
+    		kelvinOpt.removeAttribute('hidden');
+    	}
+
+		document.addEventListener("DOMContentLoaded", function(event) {
+			fromSelector.onchange = function(e) {
+				refreshOption();
+				hideOption(fromSelector.value.toLowerCase());
+				console.log('gue jalaaan:' + fromSelector.value.toLowerCase());
+			}
+		});	
+	</script>
+</body>
+</html>
