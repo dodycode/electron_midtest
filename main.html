@@ -66,6 +66,14 @@
 
 		function hideOption(optionId){
     		document.querySelector(`#${optionId}`).setAttribute('hidden', true);
+
+    		if (fromSelector.value.toLowerCase() === 'fahrenheit') {
+    			kelvinOpt.setAttribute('hidden', true);
+    		}
+
+    		if (fromSelector.value.toLowerCase() === 'kelvin') {
+    			fahrenheitOpt.setAttribute('hidden', true);
+    		}
     	}
 
     	function refreshOption(){
@@ -75,6 +83,10 @@
     		fahrenheitOpt.removeAttribute('hidden');
     		reamurOpt.removeAttribute('hidden');
     		kelvinOpt.removeAttribute('hidden');
+    	}
+
+    	function formulas(){
+    		
     	}
 
 		document.addEventListener("DOMContentLoaded", function(event) {
